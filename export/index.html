@@ -382,13 +382,13 @@ add("Julia", "Python") # "Julia and Python"
   <pre data-id="compiling"><code class="language-c" data-line-numbers data-trim style="font-size: 15px;">
 #include <stdio.h>
 #include <stdlib.h>
-int add(int a, int b){
+int add_int32(int a, int b){
     return a + b;
 }
-double add(double a, double b){
+double add_double(double a, double b){
     return a + b;
 }
-int* add(int *a, int *b, int n){
+int* add_int_array(int *a, int *b, int n){
     /* Note that I am not even checking bounds or anything fancy */
     int *result;
     int i;
@@ -399,11 +399,11 @@ int* add(int *a, int *b, int n){
     return result;
 }
 int main(){
-    printf("%d", add(1, 2)); /* 3 */
-    printf("%g", add(1.0, 2.0)) /* 3.0 */
+    printf("%d", add_int32(1, 2)); /* 3 */
+    printf("%g", add_double(1.0, 2.0)) /* 3.0 */
     a = {1, 2, 3};
     b = {4, 5, 6};
-    /* printf("arr", add(a, b, 3)); # needs printing function that I didn't implement*/
+    /* printf("arr", add_int_array(a, b, 3)); # needs printing function that I didn't implement*/
     return 0;
 }
 </code></pre>
@@ -503,7 +503,7 @@ end
 function do_more_stuff(data)
     # Do something else with data
 end
-data = DataFrame(CSV.load("mydata.csv")) |> DataFrame
+data = CSV.read("mydata.csv", DataFrame)
 stuff = do_stuff(data)
 sigma = std(data[!, :myvar])
 plot(data[!:,x], sigma)
@@ -800,7 +800,7 @@ using Plots
 using LinearAlgebra
 using StatsBase
 using Revise
-data = CSV.load("mydata.csv") |> DataFrame
+data = CSV.read("mydata.csv", DataFrame)
 # and only use DataFrames...
 </code></pre>
 <p class="fragment">This creates unnecessary dependencies. Please keep it small and organized!</p>
