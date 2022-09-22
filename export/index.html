@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Eindhoven Julia Meetup Sep 2022</title>
+
+  <meta name="description" content="">
+  <meta name="author" content="Jorge Vieyra">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- REVEAL CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/dist/reveal.css">
+  
+  <link rel="stylesheet" href="libs/reveal.js/dist/theme/white.css" id="theme">
+  
+  
+  <!--
+  <link rel="stylesheet" href="libs/reveal.js/plugin/title-footer/title-footer-mod.css" />
+  -->
+
+  <!-- MERMAID-->
+  <!--
+  <script src="libs/reveal.js/plugin/mermaid/mermaid.min.js"></script>
+  <style>
+  .mermaid {
+    font-size: 0.5em;
+  }
+  </style>
+  -->
+  
+  <style>
+    [class*=task-list-item] {
+      min-height: 22px;
+      margin-top: 6px!important;
+      margin-bottom: 6px!important;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    [class*=task-list-item]>input:first-child {
+      position: absolute!important;
+      opacity: 0;
+      margin: 0;
+    }
+
+    [class*=task-list-item]>label {
+      padding-left: 29px!important;
+      min-height: 22px;
+      line-height: 22px;
+      display: inline-block;
+      position: relative;
+      vertical-align: top;
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::before, .task-list-item>input:first-child:checked+label::before {
+      background-color: #ecf0f1;
+      border-color: #ecf0f1;
+    }
+
+    [class*=task-list-item]>input:first-child+input[type=hidden]+label::before, [class*=task-list-item]>input:first-child+label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #D3CFC8;
+      border-radius: 0;
+      margin-left: -29px;
+    }
+
+    [class*=task-list-item]>input:first-child:checked+input[type=hidden]+label::after, [class*=task-list-item]>input:first-child:checked+label::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 10px;
+      border: 2px solid #fff;
+      border-left: none;
+      border-top: none;
+      transform: translate(7.75px,4.5px) rotate(45deg);
+      -ms-transform: translate(7.75px,4.5px) rotate(45deg);
+    }
+
+    .task-list-item>input:first-child:checked+input[type=hidden]+label::after, .task-list-item>input:first-child:checked+label::after {
+      border-bottom-color: #95a5a6;
+      border-right-color: #95a5a6;
+    }
+  </style>
+
+  <!-- Theme used for syntax highlighting of code -->
+  
+  <link rel="stylesheet" href="libs/reveal.js/plugin/highlight/monokai.css">
+  
+
+  
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'libs/reveal.js/dist/print/pdf.css' : 'libs/reveal.js/dist/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <style>
+     .line {
+      display: block;
+    }   
+
+    .line.focus {
+      background: #fdf6e3;
+      color: #657b83;
+    }
+
+    .reveal .slides section .fragment.current-only {
+      visibility: visible;
+      display: none;
+    }
+
+    .reveal .slides section .fragment.current-only.current-fragment {
+      display: block;
+    }
+
+    .line.focus {
+       opacity: 1.0;
+    } 
+
+    @media (device-width: 100vw) and (device-height: 100vh) {
+      .reveal pre code {
+        max-height: 50vh !important;
+      }
+    }
+
+    #logo img {
+      max-height: 3.5em;
+      max-width: none;
+      min-width: 50px;
+    }
+
+    .reveal .slides section .code-presenting-annotation {
+      color: white;
+      background: black;
+      padding: 0px 15px;
+      border-radius: 15px;
+      opacity: 0.75 !important;
+      font-size: 50% !important;
+    }
+  </style>
+  <script>
+    if (window.location.search.match(/print-pdf-now/gi)) {
+      window.print();
+    }
+  </script>
+</head>
+
+<body>
+  
+<div id="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1">
+  <img src="julia.svg" />
+</div>
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      
+  
+    <section >
+      <h2><a id="user-content-top-10-mistakes-to-avoid-in" class="anchor" href="#top-10-mistakes-to-avoid-in" aria-hidden="true"></a>Top 10 mistakes to avoid in <img src="julia.svg" width="200"></h2>
+<p>Jorge Vieyra</p>
+
+    </section>
+  
+
+  
+    <section >
+      <section>
+    <ul>
+        <li> Basic ... with small incursions in C (and VB) </li>
+        <li class="fragment"> Pascal (at University) ... and Delphi (Visual Pascal)</li>
+        <li class="fragment"> Fortran77 and python (1.6 at the time) as a TA for Physics 101</li>
+        <li class="fragment"> PERL ... because was trendier than python</li>
+        <li class="fragment"> C ... <em>real</em> linuxers knew </li>
+        <li class="fragment"> PHP + MySQL for websites ... free-lancing </li>
+        <li class="fragment"> MATLAB for Chemical Process Simulations </li>
+        <li class="fragment"> Then <em>real</em> C for Fluid Dynamics in cluster @MIT </li>
+        <li class="fragment"> More MATLAB as TA for Numerical Simulation </li>
+        <li class="fragment"> Python + MATLAB for PhD ...  and then for ASML </li>
+        <li class="fragment"> ... Now Julia </li>
+    </ul>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-1-treating-as" class="anchor" href="#1-treating-as" aria-hidden="true"></a>1 Treating <img src="julia.svg" height="80" style="vertical-align:bottom"> as <img src="python.svg" height="80" style="vertical-align:bottom"></h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section style="text-align: left;">
+Python is the most popular language in the world.
+<p>Will not discuss the social aspects of this statement,</p>
+<p>just the technical ones…
+<ul>
+<li class="fragment">Python is fundamentally different from Julia</li>
+<li class="fragment">Python is interpreted … Julia is compiled-ish</li>
+<li class="fragment">External compiled packages to offload tasks, e.g. numpy, pandas, matplotlib, etc.</li>
+<li class="fragment">Nice … but then each package is its “own” universe </lib>
+</ul></p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <h2 data-id="code-title">Simple example</h2>
+  <pre data-id="python-add"><code class="language-python" data-line-numbers data-trim data-noescape>
+  def add(a, b):
+    return a + b
+  </code></pre>
+  <p class="fragment">What does this code do?</p>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Simple example</h2>
+  <pre data-id="python-add"><code class="language-python" data-line-numbers data-trim data-noescape>
+    import numpy as np
+    def add(a, b):
+        return a + b
+    if __name__ == "__main__":
+        x = np.random.rand(10)
+        y = np.random.rand(10)
+        add(x, y) # (5, 7, 9)
+        add(1, 2) # 3
+        add(1.0, 2.0) # 3.0
+  </code></pre>
+  <p>What about now?</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <h2 data-id="code-title">Python pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-python" data-line-numbers data-trim data-noescape>
+def add(a, b):
+    if isinstance(a, tuple) and isinstance(b, tuple):
+        r = tuple([i+j for i,j in zip(a, b)])
+    else:
+        r = a + b
+    return r
+if __name__ == "__main__":
+    x = (1,2,3)
+    y = (4,5,6)
+    add(x, y) # (5, 7, 9)
+    add(1, 2) # 3
+</code></pre>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Python pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-julia" data-line-numbers data-trim data-noescape>
+function add(a, b)
+    local r
+    if a isa Tuple && b isa Tuple
+        r = Tuple([i+j for (i,j) in zip(a, b)])
+    else
+        r = a + b
+    end
+end
+x = (1,2,3)
+y = (4,5,6)
+add(x, y) # (5, 7, 9)
+add(1, 2) # 3
+</code></pre>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Julia pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-julia" data-line-numbers data-trim data-noescape>
+function add(a, b)
+    return a + b
+end
+function add(a::Tuple, a::Tuple)
+    return Tuple([i+j for (i,j) in zip(a, b)])
+end
+x = (1,2,3)
+y = (4,5,6)
+add(x, y) # (5, 7, 9)
+add(1, 2) # 3
+</code></pre>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Julia pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-julia" data-line-numbers data-trim data-noescape>
+add(a, b) = a + b
+add(a::Tuple, a::Tuple) = Tuple([i+j for (i,j) in zip(a, b)])
+x = (1,2,3)
+y = (4,5,6)
+add(x, y) # (5, 7, 9)
+add(1, 2) # 3
+</code></pre>
+<p class="fragment">Using a more Julian pattern you can decrease code size and add flexibility</p>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Julia pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-julia" data-line-numbers data-trim data-noescape>
+add(a, b) = a + b
+add(a::Tuple, a::Tuple) = Tuple([i+j for (i,j) in zip(a, b)])
+add(a::String, b::String) = "$a and $b"
+x = (1,2,3)
+y = (4,5,6)
+add(x, y) # (5, 7, 9)
+add(1, 2) # 3
+add("Julia", "Python") # "Julia and Python"
+</code></pre>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Python pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-python" data-line-numbers data-trim data-noescape>
+def add(a, b):
+    if isinstance(a, tuple) and isinstance(b, tuple):
+        r = tuple([i+j for i,j in zip(a, b)])
+    elif isinstance(a, str) and isinstance(b, str):
+        r = f"{a} and {b}"
+    else:
+        r = a + b
+    return r
+if __name__ == "__main__":
+    x = (1,2,3)
+    y = (4,5,6)
+    add(x, y) # (5, 7, 9)
+    add(1, 2) # 3
+    add("Julia", "Python") # "Julia and Python"
+</code></pre>
+</section>
+<section data-auto-animate>
+    <h2 data-id="code-title">Julia pattern</h2>
+  <pre data-id="python-type-checking"><code class="language-julia" data-line-numbers data-trim data-noescape>
+add(a, b) = a + b
+add(a::Tuple, a::Tuple) = Tuple([i+j for (i,j) in zip(a, b)])
+add(a::String, b::String) = "$a and $b"
+x = (1,2,3)
+y = (4,5,6)
+add(x, y) # (5, 7, 9)
+add(1, 2) # 3
+add("Julia", "Python") # "Julia and Python"
+</code></pre>
+<p class="fragment">The original pattern forces me to modify the original code, the second one doesn't!</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-2-thinking-that-julia-is-c" class="anchor" href="#2-thinking-that-julia-is-c" aria-hidden="true"></a>2 Thinking that Julia is C</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <p data-id="code-title">Julia is compiled ... but ... you don't need this ...</p>
+  <pre data-id="compiling"><code class="language-c" data-line-numbers data-trim style="font-size: 15px;">
+#include <stdio.h>
+#include <stdlib.h>
+int add(int a, int b){
+    return a + b;
+}
+double add(double a, double b){
+    return a + b;
+}
+int* add(int *a, int *b, int n){
+    /* Note that I am not even checking bounds or anything fancy */
+    int *result;
+    int i;
+    result = (int*)malloc(n * sizeof(int));
+    for (i=0;i < n;i++){
+        n[i] = a[i] + b[i];
+    }
+    return result;
+}
+int main(){
+    printf("%d", add(1, 2)); /* 3 */
+    printf("%g", add(1.0, 2.0)) /* 3.0 */
+    a = {1, 2, 3};
+    b = {4, 5, 6};
+    /* printf("arr", add(a, b, 3)); # needs printing function that I didn't implement*/
+    return 0;
+}
+</code></pre>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">Equivalent (and more) in Julia</p>
+  <pre data-id="compiling"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+add(a, b) = a + b
+add(1,2) # 3
+add(1.0, 2.0) # 3.0
+add([1,2,3], [4,5,6]) # [5, 7, 9]
+</code></pre>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">In fact Julia allows you do do the following ...</p>
+  <pre data-id="compiling"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+add(a, b) = a + b
+Base.:+(a::String, b::String) = "$a and $b" # Don't do this
+# Definitely don't do this either
+Base.:+(a::NTuple{N, T}, b::NTuple{N, T}) where {N, T <: Number} = Tuple([i+j for (i,j) in zip(a, b)])
+add(1,2) # 3
+add(1.0, 2.0) # 3.0
+add([1,2,3], [4,5,6]) # [5, 7, 9]
+add((1,2,3), (4,5,6)) # (5, 7, 9)
+add("Julia", "Python") # "Julia and Python"
+</code></pre>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">In fact Julia allows you do do the following ...</p>
+  <pre data-id="compiling"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+using MethodAnalysis
+add([1,2,3], [4.0,5.0,6.0])
+methodinstances(add)
+# 6-element Vector{Core.MethodInstance}:
+#  MethodInstance for add(::Int64, ::Int64)
+#  MethodInstance for add(::Float64, ::Float64)
+#  MethodInstance for add(::Vector{Int64}, ::Vector{Int64})
+#  MethodInstance for add(::Tuple{Int64, Int64, Int64}, ::Tuple{Int64, Int64, Int64})
+#  MethodInstance for add(::String, ::String)
+#  MethodInstance for add(::Vector{Int64}, ::Vector{Float64})
+</code></pre>
+<p>Julia generates all the versions for seen types AND compiles it for all your inputs</p>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">What is the problem with the following code?</p>
+  <pre data-id="compiling"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+add(a, b) = a + b
+add(a::Float64, b::Float64) = a + b
+add(a::Int, b::Int) = a + b
+add(a::Vector{Float64}, b::Vector{Float64}) = a + b
+add(a::MyType, b::MyType) = a + b
+</code></pre>
+<p class="fragment">This overly <span style="color: red; font-weight: bold;">restricts</span> your function types</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-3-not-using-revisejl" class="anchor" href="#3-not-using-revisejl" aria-hidden="true"></a>3 Not using Revise.jl</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section>
+The Write-Compile-Use loop could be quite tedious
+    <ul>
+        <li class="fragment"> Thanks to Tim Holy it doesn't need to ... </li>
+        <li class="fragment"> This requires a live demo ... </li>
+    </ul>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-4-writing-scripts-instead-of-writing-packages" class="anchor" href="#4-writing-scripts-instead-of-writing-packages" aria-hidden="true"></a>4 Writing scripts instead of writing packages</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <p data-id="code-title">I have seen data engineers doing the following...</p>
+  <pre data-id="scripting"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+using DataFrames
+using Plots
+using LinearAlgebra
+using CSV
+using StatsBase
+function do_stuff(data)
+    # Do something with data
+end
+function do_more_stuff(data)
+    # Do something else with data
+end
+data = DataFrame(CSV.load("mydata.csv")) |> DataFrame
+stuff = do_stuff(data)
+sigma = std(data[!, :myvar])
+plot(data[!:,x], sigma)
+do_more_stuff(data)
+for i in sigma
+ # Do raw stuff
+end
+</code></pre>
+<p class="fragment">Running scripts like this leads to problems with scoping because everything is a global variable</p>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">Since we have the magic of Revise...</p>
+  <pre data-id="scripting"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+using MyExplorationPackage
+data = loaddata("mydata.csv")
+result = process(data)
+plot(result)
+</code></pre>
+<p class="fragment">Put all your logic inside a package. Easier to distribute it to other people. Revise makes exploration loops a breeze!</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-5-not-writing-granular-enough-functions" class="anchor" href="#5-not-writing-granular-enough-functions" aria-hidden="true"></a>5 Not writing granular enough functions</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <p data-id="code-title">Perhaps it's due to the previous point. But people tend to write TOO BIG functions.
+</p>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+function main()
+    number_list = [34, 50, 25, 100, 65]
+    largest = first(number_list)
+    #
+    for number in number_list
+        largest = number > largest ? number : largest
+    end
+    println("The largest number is $largest")
+    #
+    number_list = [102, 34, 6000, 89, 54, 2, 48 8]
+        largest = first(number_list)
+    #
+    for number in number_list
+        largest = number > largest ? number : largest
+    end
+    println("The largest number is $largest")
+    # ...
+end
+</code></pre>
+<p class="fragment">You got the point ... copy/paste of code and very long functions</p>
+</section>
+<section data-auto-animate>
+    <p data-id="code-title">This is repeated code ... that's what functions are for...
+</p>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers="3-8" data-trim style="font-size: 15px;">
+function main()
+    number_list = [34, 50, 25, 100, 65]
+    largest = first(number_list)
+    #
+    for number in number_list
+        largest = number > largest ? number : largest
+    end
+    println("The largest number is $largest")
+    #
+    number_list = [102, 34, 6000, 89, 54, 2, 48 8]
+        largest = first(number_list)
+    #
+    for number in number_list
+        largest = number > largest ? number : largest
+    end
+    println("The largest number is $largest")
+    # ...
+end
+</code></pre>
+</section>
+<section data-auto-animate>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers="|1-8,11,14|1-8" data-trim style="font-size: 15px;">
+function printlargest(list::Vector{Int})
+    largest = first(list)
+    for item in list
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+function main()
+    number_list = [34, 50, 25, 100, 65]
+    printlargest(number_list)
+    #
+    number_list = [102, 34, 6000, 89, 54, 2, 48, 8]
+    printlarget(number_list)
+end
+</code></pre>
+<p class="fragment">Can we do better?</p>
+</section>
+<section data-auto-animate>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+function printlargest_int(list::Vector{Int})
+    largest = first(list)
+    for item in list
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+function printlargest_char(list::Vector{Char})
+    largest = first(list)
+    for item in list
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+</code></pre>
+</section>
+<section data-auto-animate>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers="1,9" data-trim style="font-size: 15px;">
+function printlargest_int(list::Vector{Int})
+    largest = first(list)
+    for item in list
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+function printlargest_char(list::Vector{Char})
+    largest = first(list)
+    for item in list
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+</code></pre>
+</section>
+<section data-auto-animate>
+<p data-id="code-title">By using we reduce the amount of written code</p>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+function printlargest(list::Vector{T}) where T
+    largest = first(list)
+    for item in list
+        # We only need T to implement Base.:>
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+</code></pre>
+</section>
+<section data-auto-animate>
+<p data-id="code-title">We can generalize for all kind of Vector containers</p>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers="1" data-trim style="font-size: 15px;">
+function printlargest(list::Vector{T}) where T
+    largest = first(list)
+    for item in list
+        # We only need T to implement Base.:>
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+</code></pre>
+</section>
+<section data-auto-animate>
+<p data-id="code-title">This code now potentially works on a GPU!</p>
+  <pre data-id="granular"><code class="language-julia" data-line-numbers="1" data-trim style="font-size: 15px;">
+function printlargest(list::AbstractVector{T}) where T
+    largest = first(list)
+    for item in list
+        # We only need T to implement Base.:>
+        largest = item > largest ? item : largest
+    end
+    println("The largest number is $largest")
+    return largest
+end
+</code></pre>
+<p class="fragment">Although I wouldn't recommend this particular code</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-6-people-dont-spending-time-profiling--benchmarking" class="anchor" href="#6-people-dont-spending-time-profiling--benchmarking" aria-hidden="true"></a>6 People don’t spending time profiling / benchmarking</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+<p data-id="code-title">Consider the following code that performs:</p>
+\[ y = ABx \]
+  <pre data-id="granular"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+function mult2_v1(A::AbstractMatrix, B::AbstractMatrix, x::AbstractVector)
+    C = A * B
+    return C*x
+end
+#
+function mult2_v2(A::AbstractMatrix, B::AbstractMatrix, x::AbstractVector)
+    y = B*x
+    return A*y
+end
+</code></pre>
+<p class="fragment">Which one is faster?</p>
+</section>
+<section>
+<pre><code class="language-julia-repl" data-trim data-line-numbers="1|5|5,14" style="font-size: 10px;">
+julia> using BenchmarkTools
+julia> @benchmark mult2_v1(A,B,x)
+BenchmarkTools.Trial: 10000 samples with 198 evaluations.
+ Range (min … max):  443.268 ns …  11.167 μs  ┊ GC (min … max): 0.00% … 94.07%
+ Time  (median):     455.136 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   531.285 ns ± 542.451 ns  ┊ GC (mean ± σ):  6.03% ±  5.66%
+  ▆▆█▅▂▂▂▁                                        ▁▂▂▂▂▃▃▃▃▁    ▂
+  ███████████▅▅▃▄▃▄▃▅▅▃▅▁▄▃▄▄▄▄▁▄▄▃▃▃▃▄▁▅▄▅▅▄▄▅▅▆▇█████████████ █
+  443 ns        Histogram: log(frequency) by time        738 ns <
+ Memory estimate: 1.02 KiB, allocs estimate: 2.
+ julia> @benchmark mult2_v2(A,B,x)
+ BenchmarkTools.Trial: 10000 samples with 772 evaluations.
+ Range (min … max):  165.570 ns …   3.620 μs  ┊ GC (min … max): 0.00% … 92.05%
+ Time  (median):     173.123 ns               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   197.092 ns ± 167.225 ns  ┊ GC (mean ± σ):  5.13% ±  5.72%
+    ▅██▆▄▃▂▂▂▁                            ▁▂▂▃▄▄▃▃▂▂▁           ▂
+  ▇███████████▆▆▆▆▅▆▅▃▃▃▆▄▁▄▁▄▄▃▃▄▃▁▄▄▄▆▇█████████████▇▇▆▇▆▆▅▆▅ █
+  166 ns        Histogram: log(frequency) by time        267 ns <
+ Memory estimate: 288 bytes, allocs estimate: 2.
+</code>
+</pre>
+<p class="fragment">Julia has excellent packages for profiling!</p>
+</section>
+<section>
+    <p>Don't have time to show all ...</p>
+    <ul>
+        <li>Base has @time for rough estimates!</li>
+        <li>BechmarkTools</li>
+        <li>FlameGraphs</li>
+        <li>ProfileSVG</li>
+        <li>VSCode has a built-in one! Try it!</li>
+    </ul>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-7-people-dont-reuse-packages" class="anchor" href="#7-people-dont-reuse-packages" aria-hidden="true"></a>7 People don’t reuse packages</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section>
+<p>Julia's ecosystem is not as large as python's ... but ...</p>
+<ul>
+    <li class="fragment">It doesn't need to be as large because of composition!</li>
+    <li class="fragment">It is not small either</li>
+    <li class="fragment">You can make it grow!</li>
+</ul>
+</section>
+<section style="text-align: left;">
+    <p>Probably running out of time ...</p>
+    <ul>
+        <li>DifferentialEquations.jl</li>
+        <li>StatsBase.jl</li>
+        <li>DataFrames.jl</li>
+        <li>Images.jl</li>
+        <li>juliahub.com is very handy!</li>
+        <li><a href="https://julialang.org/community/organizations/">Check the Julia Organizations!</a></li>
+    </ul>
+    <p>Don't reinvent the wheel! Reuse THEIR types!</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-8-importing-the-universe" class="anchor" href="#8-importing-the-universe" aria-hidden="true"></a>8 Importing the “Universe”</h2>
+<section data-auto-animate>
+    <p data-id="code-title">People in a "hurry" do this...</p>
+  <pre data-id="universe-import"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
+using CSV
+using Parquet
+using MAT
+using DataFrames
+using Plots
+using LinearAlgebra
+using StatsBase
+using Revise
+data = CSV.load("mydata.csv") |> DataFrame
+# and only use DataFrames...
+</code></pre>
+<p class="fragment">This creates unnecessary dependencies. Please keep it small and organized!</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-9-not-using-the-repl" class="anchor" href="#9-not-using-the-repl" aria-hidden="true"></a>9 Not using the REPL</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section data-auto-animate>
+    <p data-id="code-title">Julia's REPL is the most advanced REPL's from all the ones out there!
+</p>
+  <pre data-id="repl"><code class="language-julia-repl" data-line-numbers data-trim style="font-size: 15px;">
+    julia> using OhMyREPL # For nicer REPL
+    shell> # can use shell commands with ;
+    pkg> # can manage your environments and installed packages ]
+</code></pre>
+<p>Pro tip! Use the REPL ... NOT the debugger!</p>
+<a href="https://www.youtube.com/watch?v=bHLXEUt5KLc">Try this REPL Mastery Workshop</a>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <h2><a id="user-content-10-not-engaging-the-community" class="anchor" href="#10-not-engaging-the-community" aria-hidden="true"></a>10 Not engaging the community</h2>
+
+    </section>
+  
+
+  
+    <section >
+      <section style="text-align: left;">
+    <p>I have heard people saying: "I cannot any documentation in Julia!"</p>
+    <ul>
+        <li>StackOverflow is not that populated for Julia</li>
+        <li>Try your local Julia group!</li>
+        <li>and/or Slack!</li>
+        <li>and/or Discourse!</li>
+        <li>and/or Discord!</li>
+        <li>and/or Zulip! ... if you can understand how it works</li>
+    </ul>
+    <p>Julia's community is still small ... That's an advantage!</p>
+</section>
+    </section>
+  
+
+  
+    <section >
+      <p>Julia is an easy to learn language</p>
+<p>… with familiar syntax</p>
+<p>… but with exponential flexibility!</p>
+<p>Embrace the change!</p>
+
+    </section>
+  
+
+
+
+    </div>
+
+  </div>
+
+  <script src="libs/reveal.js/dist/reveal.js"></script>
+
+<script src="libs/reveal.js/plugin/zoom/zoom.js"></script>
+
+<script src="libs/reveal.js/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/plugin/search/search.js"></script>
+<script src="libs/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/plugin/math/math.js"></script>
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+        controls: true,
+        controlsTutorial: true,
+        controlsLayout: 'bottom-right',
+        controlsBackArrows: 'faded',
+        progress: true,
+        slideNumber: false,
+        history: true,
+        keyboard: true,
+        overview: true,
+        center: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        shuffle: false,
+        fragments: true,
+        fragmentInURL: false,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: false,
+        autoSlide: 0,
+        autoSlideStoppable: true,
+        autoSlideMethod: Reveal.navigateNext,
+        defaultTiming: 120,
+        mouseWheel: false,
+        hideAddressBar: true,
+        previewLinks: false,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'default',
+        viewDistance: 3,
+        parallaxBackgroundImage: '',
+        parallaxBackgroundSize: '',
+        parallaxBackgroundHorizontal: 0,
+        parallaxBackgroundVertical: 0,
+        display: 'block',
+
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, RevealMath],
+        
+        math: {
+            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+            config: 'TeX-AMS_HTML-full',
+            TeX: { Macros: { RR: "{\\bf R}" } }
+        },
+        /*
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/search/search.js', async: true },
+            
+
+                
+
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/menu/menu.js' },
+            
+
+            
+            { src: 'libs/reveal.js/3.8.0/plugin/title-footer/title-footer.js', async: true, callback: function () { title_footer.initialize(); } },
+            
+            {
+                src: 'libs/highlight.js/9.15.10/reveal-code-focus-1.0.0-mod.js',
+                async: true,
+                callback: function () {
+                    RevealCodeFocus();
+                }
+            },
+            // {src: 'libs/reveal.js/3.8.0/plugin/line-numbers/line-numbers.js'}
+        ],
+        keyboard: {
+            67: function () { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+            66: function () { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+            46: function () { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+            8: function () { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+            68: function () { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+        },
+        chart: {
+            defaults: {
+                global: {
+                    title: { fontColor: "#FFF" },
+                    legend: {
+                        position: "bottom",
+                            labels: { fontColor: "#FFF" },
+                    },
+                    tooltips: {
+                        labels: { fontColor: "#FFF" },
+                    },
+                },
+                scale: {
+                    scaleLabel: { fontColor: "#FFF" },
+                    gridLines: { color: "#FFF", zeroLineColor: "#FFF" },
+                    ticks: { fontColor: "#FFF" },
+                }
+            },
+            line: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"], "borderDash": [[5, 10], [0, 0]] },
+            bar: { backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+            pie: { backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]] },
+            radar: { borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"] },
+        },
+        anything: [ 
+            {
+                className: "mermaid"
+            },
+            // ...
+        ],
+        menu: {
+            // Specifies which side of the presentation the menu will 
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+                // Specifies the width of the menu.
+                // Can be one of the following:
+                // 'normal', 'wide', 'third', 'half', 'full', or
+                // any valid css length value
+                width: 'normal',
+
+                    // Add slide numbers to the titles in the slide list.
+                    // Use 'true' or format string (same as reveal.js slide numbers)
+                    numbers: false,
+
+                        // Specifies which slide elements will be used for generating
+                        // the slide titles in the menu. The default selects the first
+                        // heading element found in the slide, but you can specify any
+                        // valid css selector and the text from the first matching
+                        // element will be used.
+                        // Note: that a section data-menu-title attribute or an element
+                        // with a menu-title class will take precedence over this option
+                        titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+                            // If slides do not have a matching title, attempt to use the
+                            // start of the text content as the title instead
+                            useTextContentForMissingTitles: false,
+
+                                // Hide slides from the menu that do not have a title.
+                                // Set to 'true' to only list slides with titles.
+                                hideMissingTitles: false,
+
+                                    // Adds markers to the slide titles to indicate the 
+                                    // progress through the presentation. Set to 'false'
+                                    // to hide the markers.
+                                    markers: true,
+
+                                        // Specify custom panels to be included in the menu, by
+                                        // providing an array of objects with 'title', 'icon'
+                                        // properties, and either a 'src' or 'content' property.
+                                        // custom: false,
+                                        custom: [],
+                                            // Specifies the themes that will be available in the themes
+                                            // menu panel. Set to 'true' to show the themes menu panel
+                                            // with the default themes list. Alternatively, provide an
+                                            // array to specify the themes to make available in the
+                                            // themes menu panel, for example...
+                                            // [
+                                            //     { name: 'Black', theme: 'css/theme/black.css' },
+                                            //     { name: 'White', theme: 'css/theme/white.css' },
+                                            //     { name: 'League', theme: 'css/theme/league.css' }
+                                            // ]
+                                            themes: false,
+
+                                                // Specifies the path to the default theme files. If your
+                                                // presentation uses a different path to the standard reveal
+                                                // layout then you need to provide this option, but only
+                                                // when 'themes' is set to 'true'. If you provide your own 
+                                                // list of themes or 'themes' is set to 'false' the 
+                                                // 'themesPath' option is ignored.
+                                                themesPath: 'css/theme/',
+
+                                                    // Specifies if the transitions menu panel will be shown.
+                                                    // Set to 'true' to show the transitions menu panel with
+                                                    // the default transitions list. Alternatively, provide an
+                                                    // array to specify the transitions to make available in
+                                                    // the transitions panel, for example...
+                                                    // ['None', 'Fade', 'Slide']
+                                                    transitions: false,
+
+                                                        // Adds a menu button to the slides to open the menu panel.
+                                                        // Set to 'false' to hide the button.
+                                                        openButton: true,
+
+                                                            // If 'true' allows the slide number in the presentation to
+                                                            // open the menu panel. The reveal.js slideNumber option must 
+                                                            // be displayed for this to take effect
+                                                            openSlideNumber: false,
+
+                                                                // If true allows the user to open and navigate the menu using
+                                                                // the keyboard. Standard keyboard interaction with reveal
+                                                                // will be disabled while the menu is open.
+                                                                keyboard: true,
+
+                                                                    // Normally the menu will close on user actions such as
+                                                                    // selecting a menu item, or clicking the presentation area.
+                                                                    // If 'true', the sticky option will leave the menu open
+                                                                    // until it is explicitly closed, that is, using the close
+                                                                    // button or pressing the ESC or m key (when the keyboard 
+                                                                    // interaction option is enabled).
+                                                                    sticky: false,
+
+                                                                        // If 'true' standard menu items will be automatically opened
+                                                                        // when navigating using the keyboard. Note: this only takes 
+                                                                        // effect when both the 'keyboard' and 'sticky' options are enabled.
+                                                                        autoOpen: true,
+
+                                                                            // If 'true' the menu will not be created until it is explicitly
+                                                                            // requested by calling RevealMenu.init(). Note this will delay
+                                                                            // the creation of all menu panels, including custom panels, and
+                                                                            // the menu button.
+                                                                            delayInit: false,
+
+                                                                                // If 'true' the menu will be shown when the menu is initialised.
+                                                                                openOnInit: false,
+
+                                                                                    // By default the menu will load it's own font-awesome library
+                                                                                    // icons. If your presentation needs to load a different
+                                                                                    // font-awesome library the 'loadIcons' option can be set to false
+                                                                                    // and the menu will not attempt to load the font-awesome library.
+                                                                                    loadIcons: false
+        },
+        chalkboard: {
+            toggleChalkboardButton: { left: "60px", bottom: "30px", top: "auto", right: "auto" },
+            toggleNotesButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
+
+        }
+        */
+    });
+
+</script>
+
+
+</body>
+
+</html>
