@@ -608,6 +608,8 @@ BenchmarkTools.Trial: 10000 samples with 198 evaluations.
 
 ## 8 Importing the "Universe"
 
+---
+
 <section data-auto-animate>
     <p data-id="code-title">People in a "hurry" do this...</p>
   <pre data-id="universe-import"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
