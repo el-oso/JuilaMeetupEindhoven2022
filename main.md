@@ -112,6 +112,7 @@ function add(a, b)
     else
         r = a + b
     end
+    return r
 end
 x = (1,2,3)
 y = (4,5,6)
