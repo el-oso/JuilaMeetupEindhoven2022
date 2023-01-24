@@ -471,7 +471,7 @@ end
 </section>
 
 <section data-auto-animate>
-<p data-id="code-title">By using we reduce the amount of written code</p>
+<p data-id="code-title">By using more functions we reduce the amount of written code</p>
   <pre data-id="granular"><code class="language-julia" data-line-numbers data-trim style="font-size: 15px;">
 function printlargest(list::Vector{T}) where T
     largest = first(list)
@@ -518,7 +518,7 @@ end
 
 ---
 
-## 6 People don't spending time profiling / benchmarking
+## 6 People don't spend time profiling / benchmarking
 
 ---
 
@@ -655,7 +655,7 @@ data = CSV.read("mydata.csv", DataFrame)
 ---
 
 <section style="text-align: left;">
-    <p>I have heard people saying: "I cannot any documentation in Julia!"</p>
+    <p>I have heard people saying: "I cannot find any documentation in Julia!"</p>
     <ul>
         <li>StackOverflow is not that populated for Julia</li>
         <li>Try your local Julia group!</li>
